@@ -32,7 +32,7 @@ include('session.php');
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" style="margin-left: 20px;">Manage Room</a>
+            <a class="nav-link" href="manageroom.php" style="margin-left: 20px;">Manage Room</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" style="margin-left: 20px;">Managing Book Details</a>

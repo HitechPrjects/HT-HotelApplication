@@ -4,8 +4,6 @@
     include("connection.php");
  
 ?>
- 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,68 +18,111 @@
 </head>
 <body>
 <div id="wrapper" style="margin-top:-100px;">
-  
-    <div class="container-fluid">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title mb-5 d-inline">Create Rooms</h5>
 
-          <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title mb-4 d-inline">Reports</h5>
-             <a  href="create_reports.php" class="btn btn-primary mb-4 text-center float-right">Create Reports</a><br><br>
-              <table class="table">
-                <thead>
-                </select></div></div>
-                                                      From:   <input type="date" class="form-control-sm" name="fromdate">
-                                            To:     <input type="date" class="form-control-sm" name="todate">&nbsp &nbsp
-                                            <input type="submit" class="btn btn-primary" name="search" value="Filter">&nbsp
-                         <a href="reports.php" class="btn btn-primary">Refresh</a>    
-                            </div>
-                  <tr>
-                   <br><br>
-                    <th scope="col">id</th>
-                    <th scope="col">Room number</th>
-                    <th scope="col">username</th>
-                    <th scope="col">Checkin Date</th>
-                    <th scope="col">Checkout Date</th>
-                    <th scope="col">Room Status</th>
-                    <th scope="col">House keeping status</th>
-                  </tr>
-                </thead>
-                <tbody>
+            <!-- Form with two columns -->
+            <div class="row">
+              <div class="col-6">
+                <!-- First Column -->
+                <h2 class="heading"></h2>
+                  <hr>
+                  <form method="POST" action='submit_reports.php' enctype="multipart/form-data" >
+                    
 
-                <?php
-  $result =mysqli_query($con,"SELECT * FROM reports");
-  while($row=mysqli_fetch_assoc($result))
-  {
-    ?>
-                  <tr>
-                    <th scope="row"><?php echo $row['id']; ?></th>
-                    <td><?php echo $row['r_no']; ?></td>
-                    <td><?php echo $row['username']; ?></td>
-                    <td><?php echo $row['checkindate']; ?></td>
-                    <td><?php echo $row['checkoutdate']; ?></td>  
-                    <td><?php echo $row['roomstatus']; ?></td>
-                    <td><?php echo $row['housekeepingstatus']; ?></td>
-                    <td><a  href="create_reports.php?id=<?php echo $row['id']; ?>" class="btn btn-warning text-white text-center ">Edit </a></td>
-                <td><a href="delete1.php?id=<?php echo $row['id']; ?>" class="btn btn-danger  text-center ">Delete</a></td>
 
-                  </tr>
-                  <?php
-  }
-  ?>
-                </tbody>
-              </table> 
+                    <div class="form-group row">
+                                                <div class="col-sm-8">
+                                                        <label class="required-field">Room number
+                                                    </label><input type="text" class="form-control" name="r_no" required>
+                                                    </div>
+                                                </div>
+
+                  
+         
+                    <div class="form-group row">
+                                                <div class="col-sm-8">
+                                                        <label class="required-field">Username
+                                                    </label><input type="text" class="form-control" name="Username" required>
+                                                    </div>
+                                                </div>
+                   
+
+
+                                                <div class="form-group row">
+  <div class="col-sm-6">
+    <label class="required-field">Room Status</label>
+    <select class="form-select" name="roomstatus" aria-label="Room Status">
+      <option disabled="disabled" value="" selected>-- Select Room Status --</option>
+      <option value="Vacant">Vacant</option>
+      <option value="Occupied">Occupied</option>
+    </select>
+  </div>
+</div>
+
+                                               
+                                                
+                    <!-- Add other form fields for the first column here -->
+                </div>
+              </div>
+
+              <div class="col-6">
+                <!-- Second Column -->
+                <div class="column sign-up">
+                  <h2 class="heading"></h2>
+                  <hr>
+                  
+                  <div class="form-group row">
+                                                <div class="col-sm-8">
+                                                        <label class="required-field">checkin date
+                                                    </label><input type="text" class="form-control" name="checkindate" required>
+                                                    </div>
+                                                </div>
+
+                                                
+                                                <div class="form-group row">
+                                                <div class="col-sm-8">
+                                                        <label class="required-field">checkout date
+                                                    </label><input type="date" class="form-control" name="checkoutdate" required>
+                                                    </div>
+</div>
+
+<div class="form-group row">
+                                                <div class="col-sm-8">
+                                                        <label class="required-field">house keeping status
+                                                    </label><input type="text" class="form-control" name="housekeepingstatus" required>
+                                                    </div>
+                                                </div> 
+
+                   
+
+                                               
+
+                    <!-- Add other form fields for the second column here -->
+
+                  
+                </div>
+              </div>
             </div>
+
+            <!-- Submit button -->
+            <button class="btn btn-primary mb-4 text-center" type="submit" name="submit">Create</button>
+            <a class="btn btn-primary mb-4 text-center" type="Back" name="Back" href="reports.php" >Back</a>
+            </form> 
           </div>
         </div>
       </div>
-
-
-
+    </div>
   </div>
-<script type="text/javascript">
-
-</script>
+</div>
 </body>
+
 </html>
+
+
+
+
